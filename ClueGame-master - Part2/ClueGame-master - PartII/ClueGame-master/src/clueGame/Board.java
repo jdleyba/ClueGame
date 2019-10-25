@@ -13,8 +13,8 @@ import java.util.Set;
 //Will Hu, Josh Leyba
 public class Board {
 	public final int MAX_BOARD_SIZE = 100;
-	private int numRows = 22;
-	private int numColumns = 22;
+	private int numRows;
+	private int numColumns;
 	private BoardCell[][] board = new BoardCell[numRows][numColumns];
 	private Map<Character, String> legend;
 	private Map<BoardCell, Set<BoardCell>> adjMatrix;
@@ -107,10 +107,28 @@ public class Board {
 	}
 
 	public int getNumRows() {
+		Scanner parseRooms = new Scanner(this.boardConfigFile);
+		int rowCount = 0;
+		
+		while(parseRooms.hasNextLine()) {
+			rowCount ++;
+			parseRooms.nextLine();
+		}
+		this.numRows = rowCount;
 		return this.numRows;
 	}
 
 	public int getNumColumns() {
+		Scanner parseRooms = new Scanner(this.boardConfigFile);
+		String commaCheck = parseRooms.nextLine();;
+		int commaCount = 0;
+		
+		for(int i = 0; i < commaCheck.length(); i++) {
+			if(commaCheck.charAt(i) == ',') {
+				commaCount++;
+			}				
+		}
+		this.numColumns = commaCount + 1;
 		return this.numColumns;
 	}
 
