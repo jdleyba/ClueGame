@@ -15,10 +15,11 @@ public class Board {
 	public final int MAX_BOARD_SIZE = 100;
 	private int numRows;
 	private int numColumns;
-	private BoardCell[][] board = new BoardCell[numRows][numColumns];
+	private BoardCell[][] board;
 	private Map<Character, String> legend;
 	private Map<BoardCell, Set<BoardCell>> adjMatrix;
 	private Set<BoardCell> targets;
+	
 	private String boardConfigFile;
 	private String roomConfigFile;
 	
@@ -36,14 +37,17 @@ public class Board {
 	}	
 	
 	public void initialize(){
+		this.numRows = this.getNumRows();
+		this.numColumns = this.getNumColumns();
+		this.board = new BoardCell[numRows][numColumns];
 		String getLetters = boardConfigFile.replace(",", "\n");
 		Scanner letterScanner = new Scanner(getLetters);
 		
 		for(int i = 0; i < numRows; i++) {
 			for(int j = 0; j < numColumns; j++) {
 				BoardCell temp = new BoardCell(i,j);
-				this.board[i][j] = temp;
-				this.board[i][j].initial = letterScanner.next();
+				temp.initial = letterScanner.next();
+				this.board[i][j] = temp; 
 			}
 		}
 		
@@ -135,13 +139,13 @@ public class Board {
 	public BoardCell getCellAt(int i, int j) {
 		return this.board[i][j];
 	}
-	public static void main(String[] args) throws FileNotFoundException {
-		Board board = Board.getInstance();
-		board.setConfigFiles("ClueLayout.csv", "ClueLayout.txt");
-		board.initialize();
-		
-		
-		System.out.println(board.getCellAt(9,6).getDoorDirection());
-	}
+//	public static void main(String[] args) throws FileNotFoundException {
+//		Board board = Board.getInstance();
+//		board.setConfigFiles("ClueLayout.csv", "ClueLayout.txt");
+//		board.initialize();
+//		
+//		
+//		System.out.println(board.getCellAt(9,6).getDoorDirection());
+//	}
 }
 	

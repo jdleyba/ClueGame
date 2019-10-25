@@ -11,6 +11,11 @@ public class BoardCell {
 		this.column = column;
 	}
 
+	public BoardCell(String initial) {
+		super();
+		this.initial = initial;
+	}
+
 	public boolean isDoorway() {
 		if(this.initial.length() == 2) {
 			return true;
