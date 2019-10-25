@@ -12,7 +12,7 @@ import clueGame.Board;
 import clueGame.BoardCell;
 import clueGame.DoorDirection;
 
-public class Tests {
+public class FileInitTests {
 	//put in proper lengths
 	public static final int LEGEND_SIZE = 11;
 	public static final int NUM_ROWS = 22;
