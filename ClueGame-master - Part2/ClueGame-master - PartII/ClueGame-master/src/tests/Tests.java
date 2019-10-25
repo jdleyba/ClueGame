@@ -77,21 +77,21 @@ public class Tests {
 	@Test
 	public void testRoomInitials() {
 		// Test first cell in room
-		assertEquals("B", board.getCellAt(4, 0).getInitial());
-		assertEquals("S", board.getCellAt(10, 6).getInitial());
-		assertEquals("L", board.getCellAt(15, 2).getInitial());
+		assertEquals('B', board.getCellAt(4, 0).getInitial());
+		assertEquals('S', board.getCellAt(10, 6).getInitial());
+		assertEquals('L', board.getCellAt(15, 2).getInitial());
 		// Test middle cells in the room
-		assertEquals("K", board.getCellAt(2,12).getInitial());
-		assertEquals("M", board.getCellAt(17,10 ).getInitial());
-		assertEquals("H", board.getCellAt(4,17).getInitial());
+		assertEquals('K', board.getCellAt(2,12).getInitial());
+		assertEquals('M', board.getCellAt(17,10 ).getInitial());
+		assertEquals('H', board.getCellAt(4,17).getInitial());
 		// Test last cell in room
-		assertEquals("C", board.getCellAt(6,21).getInitial());
-		assertEquals("Z", board.getCellAt(9,20).getInitial());
-		assertEquals("T", board.getCellAt(19,19).getInitial());
+		assertEquals('C', board.getCellAt(6,21).getInitial());
+		assertEquals('Z', board.getCellAt(9,20).getInitial());
+		assertEquals('T', board.getCellAt(19,19).getInitial());
 		// Test a walkway
-		assertEquals("W", board.getCellAt(6, 0).getInitial());
+		assertEquals('W', board.getCellAt(6, 0).getInitial());
 		// Test the closet
-		assertEquals("X", board.getCellAt(9,12).getInitial());
+		assertEquals('X', board.getCellAt(9,12).getInitial());
 	}
 	
 	@Test
