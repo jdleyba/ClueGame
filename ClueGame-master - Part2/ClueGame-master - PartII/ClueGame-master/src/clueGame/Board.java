@@ -92,8 +92,15 @@ public class Board {
 			if( s.length() == 2 && parseLegend.hasNext()) {
 				char charKey = s.charAt(0);
 				s = parseLegend.next();
-				String valueString = s.substring(0, (s.length()-1));
-				legend.put(charKey, valueString);
+				if(s.charAt(s.length()-1) == ',') {
+					String valueString = s.substring(0, (s.length()-1));
+					legend.put(charKey, valueString);
+				}
+				else {
+					s = s + " " + parseLegend.next();
+					String valueString = s.substring(0, (s.length()-1));
+					legend.put(charKey, valueString);
+				}
 			}
 		}
 		return legend;
