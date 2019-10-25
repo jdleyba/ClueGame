@@ -17,7 +17,7 @@ public class BoardCell {
 	}
 
 	public boolean isDoorway() {
-		if(this.initial.length() == 2) {
+		if(this.initial.length() == 2 && this.initial.charAt(1) != 'N') {
 			return true;
 		}
 		return false;
@@ -47,7 +47,7 @@ public class BoardCell {
 	}
 
 	public Object getInitial() {
-		return this.initial;
+		return this.initial.charAt(0);
 	}
 }
 
